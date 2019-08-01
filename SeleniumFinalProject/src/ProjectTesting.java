@@ -16,8 +16,11 @@ class ProjectTesting {
 	void test() throws InterruptedException {
 		
 		QnAone.QnAone(driver, "a", "a","b","c","d");
+		AnswerRadioButton.RadioButton(driver, 1);
         QnAtwo.QnAtwo(driver,"b","g","b","r","u");
+		AnswerRadioButton.RadioButton(driver, 2);
         QnAthree.QnAthree(driver,"c","w","j","c","q");
+		AnswerRadioButton.RadioButton(driver, 3);
         GameFrstRound.GameFrstRound(driver);
         GameSecondRound.GameSecondRound(driver);
         GameThirdRound.GameThirdRound(driver);
@@ -25,6 +28,7 @@ class ProjectTesting {
         driver.quit();
 		
 	}
+
 	
 	//Boundary Values Test
     @Test

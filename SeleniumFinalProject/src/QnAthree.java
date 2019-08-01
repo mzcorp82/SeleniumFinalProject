@@ -12,8 +12,7 @@ public class QnAthree {
         driver.findElement(By.xpath("//*[@id=\"answers\"]/div[2]/div[2]/input")).sendKeys(secondAnsw);
         driver.findElement(By.xpath("//*[@id=\"answers\"]/div[3]/div[2]/input")).sendKeys(thirdAnsw);
         driver.findElement(By.xpath("//*[@id=\"answers\"]/div[4]/div[2]/input")).sendKeys(forthAnsw);
-        driver.findElement(By.xpath("//*[@id=\"answers\"]/div[3]/div[1]/input")).click();
-        driver.findElement(By.id("nextquest")).click();
+
 
     }
 
