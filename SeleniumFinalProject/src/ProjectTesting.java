@@ -176,24 +176,26 @@ class ProjectTesting {
       
       @Test
       void IsFirstQnASaved() {
-    	QnAone.QnAone(driver, "a", "z","b","c","d");
+    	QnAone.QnAone(driver, "a", " ","b","c","d");
   		AnswerRadioButton.RadioButton(driver, 1);
   		driver.findElement(By.id("backquest")).click();
   		
-  		WebElement firstAnswer = driver.findElement(By.name("answer1"));
- 		firstAnswer.getAttribute("value");
-  		if(firstAnswer.equals("z")) {
-  			System.out.println("OK");
+  		String firstAnswer = driver.findElement(By.name("answer1")).getAttribute("value");
+ 		
+  		if (firstAnswer.equalsIgnoreCase(" ")) {
+  			System.out.println("Empty first answer");
   		}
   		else {
   			System.out.println("not OK");
+  		}
+ 		driver.quit();
   		}
 
   		
 //  		String str = driver.findElement(By.xpath("//*[@id=\"answers\"]/div[1]/div[2]/input")).getAttribute("first answer");
 //  		System.out.println("The str: " + str);
-  		driver.quit();
-  		}
+  		
+  		
         
 //          Thread.sleep(3000);
       
