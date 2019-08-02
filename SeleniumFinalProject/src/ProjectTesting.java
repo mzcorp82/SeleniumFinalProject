@@ -176,30 +176,62 @@ class ProjectTesting {
       
       @Test
       void IsFirstQnASaved() {
-    	QnAone.QnAone(driver, "a", " ","b","c","d");
+    	QnAone.QnAone(driver, "a", "a","b","c","d");
   		AnswerRadioButton.RadioButton(driver, 1);
   		driver.findElement(By.id("backquest")).click();
   		
   		String firstAnswer = driver.findElement(By.name("answer1")).getAttribute("value");
  		
   		if (firstAnswer.equalsIgnoreCase(" ")) {
-  			System.out.println("Empty first answer");
+  			System.out.println("Test failed");
   		}
   		else {
-  			System.out.println("not OK");
+  			System.out.println("The test has passed");
   		}
  		driver.quit();
   		}
-
-  		
-//  		String str = driver.findElement(By.xpath("//*[@id=\"answers\"]/div[1]/div[2]/input")).getAttribute("first answer");
-//  		System.out.println("The str: " + str);
-  		
-  		
-        
-//          Thread.sleep(3000);
       
-//
+      @Test
+      void IsSecondQnASaved() {
+      QnAone.QnAone(driver, "a", "a","b","c","d");
+      AnswerRadioButton.RadioButton(driver, 1);
+      QnAtwo.QnAtwo(driver,"b","g","b","r","u");
+      AnswerRadioButton.RadioButton(driver, 1);
+      
+      String firstAnswer = driver.findElement(By.name("answer1")).getAttribute("value");
+		
+      if (firstAnswer.equalsIgnoreCase(" ")) {
+			System.out.println("Test failed");
+		}
+      else {
+			System.out.println("The test has passed");
+		}
+		driver.quit();
+		}
+      
+      @Test
+      void IsThirdQnASaved() {
+      QnAone.QnAone(driver, "a", "a","b","c","d");
+      AnswerRadioButton.RadioButton(driver, 1);
+      QnAtwo.QnAtwo(driver,"b","g","b","r","u");
+      AnswerRadioButton.RadioButton(driver, 1);
+      QnAthree.QnAthree(driver,"c","w","j","c","q");
+      AnswerRadioButton.RadioButton(driver, 1);
+      
+      String firstAnswer = driver.findElement(By.name("answer1")).getAttribute("value");
+ 		
+  		if (firstAnswer.equalsIgnoreCase(" ")) {
+  			System.out.println("Test failed");
+  		}
+  		else {
+  			System.out.println("The test has passed");
+  		}
+ 		driver.quit();
+  		}
+		
+      
+  		
+
 //      @Test
 //      void TestWithNumbers() {
 //
