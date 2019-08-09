@@ -3,10 +3,10 @@ import org.openqa.selenium.WebDriver;
 
 public class TriviaQuestion {
 	
-	public static void TriviaQuestion (WebDriver driver, String firstQuestion) {
+	public static void TriviaQuestion (WebDriver Cdriver, String firstQuestion) {
 
         
-        driver.findElement(By.name("question")).sendKeys(firstQuestion);
+		Cdriver.findElement(By.name("question")).sendKeys(firstQuestion);
     
     }
 

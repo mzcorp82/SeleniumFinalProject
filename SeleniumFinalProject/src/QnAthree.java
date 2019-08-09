@@ -4,14 +4,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class QnAthree {
 	
-	public static void QnAthree (WebDriver driver, String thirdQuestion, String firstAnsw, String secondAnsw, String thirdAnsw, String forthAnsw) {
+	public static void QnAthree (WebDriver Cdriver, String thirdQuestion, String firstAnsw, String secondAnsw, String thirdAnsw, String forthAnsw) {
 
-        driver.findElement(By.name("question")).sendKeys(thirdQuestion);
-        driver.findElement(By.id("nextquest")).click();
-        driver.findElement(By.xpath("//*[@id=\"answers\"]/div[1]/div[2]/input")).sendKeys(firstAnsw);
-        driver.findElement(By.xpath("//*[@id=\"answers\"]/div[2]/div[2]/input")).sendKeys(secondAnsw);
-        driver.findElement(By.xpath("//*[@id=\"answers\"]/div[3]/div[2]/input")).sendKeys(thirdAnsw);
-        driver.findElement(By.xpath("//*[@id=\"answers\"]/div[4]/div[2]/input")).sendKeys(forthAnsw);
+		Cdriver.findElement(By.name("question")).sendKeys(thirdQuestion);
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.xpath("//*[@id=\"answers\"]/div[1]/div[2]/input")).sendKeys(firstAnsw);
+		Cdriver.findElement(By.xpath("//*[@id=\"answers\"]/div[2]/div[2]/input")).sendKeys(secondAnsw);
+		Cdriver.findElement(By.xpath("//*[@id=\"answers\"]/div[3]/div[2]/input")).sendKeys(thirdAnsw);
+		Cdriver.findElement(By.xpath("//*[@id=\"answers\"]/div[4]/div[2]/input")).sendKeys(forthAnsw);
 
 
     }
