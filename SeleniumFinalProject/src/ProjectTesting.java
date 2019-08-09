@@ -9,10 +9,13 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import junit.framework.Assert;
 
 class ProjectTesting {
 
@@ -259,7 +262,13 @@ class ProjectTesting {
 	void PopUpFirstMessage() {
 
 		QnAone.QnAone(Cdriver, "a", "a","b","c","d");
-		Cdriver.findElement(By.id("nextquest")).click();
+		try {
+			Cdriver.findElement(By.id("nextquest")).click();
+		}	
+		catch(UnhandledAlertException e) {	
+			Assert.fail("Exception " + e);
+		}
+		
 
 	}
 
@@ -269,7 +278,12 @@ class ProjectTesting {
 		QnAone.QnAone(Cdriver, "a", "a","b","c","d");
 		AnswerRadioButton.RadioButton(Cdriver, 1);
 		QnAtwo.QnAtwo(Cdriver,"b","g","b","r","u");
-		Cdriver.findElement(By.id("nextquest")).click();
+		try {
+			Cdriver.findElement(By.id("nextquest")).click();
+		}	
+		catch(UnhandledAlertException e) {	
+			Assert.fail("Exception " + e);
+		}
 
 
 	}
@@ -282,7 +296,12 @@ class ProjectTesting {
 		QnAtwo.QnAtwo(Cdriver,"b","g","b","r","u");
 		AnswerRadioButton.RadioButton(Cdriver, 2);
 		QnAthree.QnAthree(Cdriver,"c","w","j","c","q");
-		Cdriver.findElement(By.id("nextquest")).click();
+		try {
+			Cdriver.findElement(By.id("nextquest")).click();
+		}	
+		catch(UnhandledAlertException e) {	
+			Assert.fail("Exception " + e);
+		}
 
 
 	}
@@ -295,6 +314,8 @@ class ProjectTesting {
 			Thread.sleep(1000);
 			Cdriver.findElement(By.name("question")).sendKeys("b");
 			Cdriver.findElement(By.id("backquest")).click();
+			
+			assertEquals(true, Cdriver.getPageSource().contains("question number: 1")==true);
 		}
 
 
@@ -311,21 +332,8 @@ class ProjectTesting {
 			Thread.sleep(1000);
 			Cdriver.findElement(By.name("question")).sendKeys("b");
 			Cdriver.findElement(By.id("backquest")).click();
-		}
-
-
-	}
-
-	@Test
-	void IsThirdWebPageTurn() throws InterruptedException {
-		QnAone.QnAone(Cdriver, "a", "a","b","c","d");
-		AnswerRadioButton.RadioButton(Cdriver, 1);
-		QnAtwo.QnAtwo(Cdriver,"b","g","b","r","u");
-		AnswerRadioButton.RadioButton(Cdriver, 2);
-		QnAthree.QnAthree(Cdriver,"c","w","j","c","q");
-		AnswerRadioButton.RadioButton(Cdriver, 3);
-		if(Cdriver.findElement(By.xpath("//*[@id=\"myform1\"]/div/legend")).isEnabled()==true){
-			Cdriver.findElement(By.xpath("//*[@id=\"secondepage\"]/center/button[2]")).click();
+			
+			assertEquals(true, Cdriver.getPageSource().contains("question number: 2")==true);
 		}
 
 
@@ -345,15 +353,11 @@ class ProjectTesting {
 				Cdriver.findElement(By.id("backquest")).click();
 				if(Cdriver.getPageSource().contains("Please type here your question")==true) {
 					String firstQuestion = Cdriver.findElement(By.name("question")).getAttribute("value");
-					if (firstQuestion.equalsIgnoreCase(" ")) {
-						System.out.println("question test failed");				}
-					else {
-						System.out.println("The test has passed");
-					}
+					
+					assertEquals(!true, (firstQuestion.equalsIgnoreCase(" ")==true));
 				}
 			}
 		}	
-
 	}
 
 	@Test
@@ -374,11 +378,8 @@ class ProjectTesting {
 				Cdriver.findElement(By.id("backquest")).click();
 				if(!Cdriver.getPageSource().contains("question number: 3")==true) {
 					String secondQuestion = Cdriver.findElement(By.name("question")).getAttribute("value");
-					if (secondQuestion.equalsIgnoreCase(" ")) {
-						System.out.println("question test failed");				}
-					else {
-						System.out.println("The test has passed");
-					}
+					
+					assertEquals(!true, (secondQuestion.equalsIgnoreCase(" ")==true));
 				}
 			}
 		}
@@ -400,7 +401,8 @@ class ProjectTesting {
 		GameFrstRound.GameFrstRound(Cdriver);
 		GameSecondRound.GameSecondRound(Cdriver);
 		GameThirdRound.GameThirdRound(Cdriver);
-
+		
+		assertEquals(true, Cdriver.getPageSource().contains("Sucsses")==true);
 
 	}
 
@@ -418,7 +420,8 @@ class ProjectTesting {
 		InGameRadioButton.RadioButton(Cdriver, 1, 4);
 		InGameRadioButton.RadioButton(Cdriver, 2, 4);
 		InGameRadioButton.RadioButton(Cdriver, 3, 4);
-
+		
+		assertEquals(true, Cdriver.getPageSource().contains("Failed")==true);
 
 
 	}
@@ -436,7 +439,7 @@ class ProjectTesting {
 		GameThirdRound.GameThirdRound(Cdriver);
 		Cdriver.findElement(By.xpath("//*[@id=\"markpage\"]/center/button[1]")).click();
 
-
+		assertEquals(true, Cdriver.getPageSource().contains("Test")==true);
 
 	}
 
@@ -454,7 +457,7 @@ class ProjectTesting {
 		GameThirdRound.GameThirdRound(Cdriver);
 		Cdriver.findElement(By.xpath("//*[@id=\"markpage\"]/center/button[2]")).click();
 
-
+		assertEquals(true, Cdriver.findElement(By.xpath("/html/body")).isEnabled()==true);
 
 	}
 
@@ -471,7 +474,8 @@ class ProjectTesting {
 		InGameRadioButton.RadioButton(Cdriver, 1, 1);
 		InGameRadioButton.RadioButton(Cdriver, 2, 1);
 		InGameRadioButton.RadioButton(Cdriver, 3, 1);
-
+		
+		assertEquals(true, Cdriver.getPageSource().contains("Sucsses")==true);
 
 	}
 
@@ -488,7 +492,8 @@ class ProjectTesting {
 		InGameRadioButton.RadioButton(Cdriver, 1, 1);
 		InGameRadioButton.RadioButton(Cdriver, 2, 1);
 		InGameRadioButton.RadioButton(Cdriver, 3, 1);
-
+		
+		assertEquals(true, Cdriver.getPageSource().contains("Failed")==true);
 
 	}
 
@@ -505,12 +510,13 @@ class ProjectTesting {
 		InGameRadioButton.RadioButton(Cdriver, 1, 1);
 		InGameRadioButton.RadioButton(Cdriver, 2, 1);
 		InGameRadioButton.RadioButton(Cdriver, 3, 1);
-
+		
+		assertEquals(true, Cdriver.getPageSource().contains("Failed")==true);
 
 	}
 
 	@Test
-	void IsPageCorrectForFirsQnA() throws InterruptedException {
+	void IsPageCorrectForFirsQnA() {
 
 		TriviaQuestion.TriviaQuestion(Cdriver, "a");
 		Cdriver.findElement(By.id("nextquest")).click();
@@ -528,6 +534,9 @@ class ProjectTesting {
 				if(Cdriver.getPageSource().contains("Please type here your question")==true) {
 					Cdriver.findElement(By.id("backquest")).click();
 					if(Cdriver.getPageSource().contains("question number: 1")==true) {
+						
+						assertEquals(true, (Cdriver.getPageSource().contains("question number: 1")==true));
+
 						System.out.println("The test for first QnA passed");
 						Cdriver.quit();
 					}
@@ -554,6 +563,9 @@ class ProjectTesting {
 					TriviaQuestion.TriviaQuestion(Cdriver, "c");
 					Cdriver.findElement(By.id("backquest")).click();
 					if(Cdriver.getPageSource().contains("question number: 2")==true) {
+						
+						assertEquals(true, (Cdriver.getPageSource().contains("question number: 2")==true));
+	
 						System.out.println("The test for second QnA passed");
 						Cdriver.quit();
 					}
@@ -590,6 +602,9 @@ class ProjectTesting {
 				Cdriver.findElement(By.id("nextquest")).click();
 				System.out.println("3");
 				if(Cdriver.getPageSource().contains("You finished")==true) {
+					
+					assertEquals(true, (Cdriver.getPageSource().contains("You finished")==true));
+
 					System.out.println("The test for second QnA passed");
 					Cdriver.quit();
 				}
@@ -622,6 +637,9 @@ class ProjectTesting {
 			System.out.println("4");
 			Cdriver.findElement(By.xpath("//*[@id=\"secondepage\"]/center/button[1]")).click();
 			if(Cdriver.getPageSource().contains("Test")==true)
+				
+				assertEquals(true, (Cdriver.getPageSource().contains("Test")==true));
+
 				System.out.println("The test for second QnA passed");
 			Cdriver.quit();
 		}
