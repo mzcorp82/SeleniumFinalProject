@@ -48,7 +48,7 @@ class ProjectTesting {
 
 	@Test
 	void ChromeSanity(){
-
+		
 		QnAone.QnAone(Cdriver, "a", "a","b","c","d");
 		AnswerRadioButton.RadioButton(Cdriver, 1);
 		QnAtwo.QnAtwo(Cdriver,"b","g","b","r","u");
@@ -334,16 +334,14 @@ class ProjectTesting {
 	}
 
 	@Test
-	void IsSecondWebPageTurn() throws InterruptedException {
+	void IsSecondWebPageTurn(){
 		QnAone.QnAone(Cdriver, "a", "a","b","c","d");
 		AnswerRadioButton.RadioButton(Cdriver, 1);
 		QnAtwo.QnAtwo(Cdriver,"b","g","b","r","u");
 		AnswerRadioButton.RadioButton(Cdriver, 2);
 		if(Cdriver.findElement(By.xpath("//*[@id=\"myform1\"]/div/legend")).isEnabled()==true){
-			Thread.sleep(1000);
 			Cdriver.findElement(By.name("question")).sendKeys("b");
 			Cdriver.findElement(By.id("backquest")).click();
-
 			assertEquals(true, Cdriver.getPageSource().contains("question number: 2")==true);
 		}
 
@@ -586,49 +584,7 @@ class ProjectTesting {
 		}
 	}
 
-	//	@Test
-	//	void IsPageCorrectForThirdQnA() {
-	//		TriviaQuestion.TriviaQuestion(Cdriver, "a");
-	//		Cdriver.findElement(By.id("nextquest")).click();
-	//		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
-	//		AnswerRadioButton.RadioButton(Cdriver, 1);
-	//		Cdriver.findElement(By.id("nextquest")).click();
-	//		TriviaQuestion.TriviaQuestion(Cdriver, "b");
-	//		Cdriver.findElement(By.id("nextquest")).click();
-	//		TriviaAnswers.TriviaAnswers(Cdriver, "e", "b", "g", "y");
-	//		AnswerRadioButton.RadioButton(Cdriver, 2);
-	//		Cdriver.findElement(By.id("nextquest")).click();
-	//		System.out.println("1");
-	//		if(Cdriver.getPageSource().contains("question number: 3")==true) {
-	//			TriviaQuestion.TriviaQuestion(Cdriver, "c");
-	//			Cdriver.findElement(By.id("nextquest")).click();
-	//			System.out.println("2");
-	//			if(Cdriver.getPageSource().contains("Please enter 4 possible answers and Mark the right one")==true) {
-	//				System.out.println("2.1");
-	//				TriviaAnswers.TriviaAnswers(Cdriver, "t", "e", "c", "u");
-	//				System.out.println("2.2");
-	//				
-	//				AnswerRadioButton.RadioButton(Cdriver, 3);
-	//				System.out.println("2.3");
-	//				
-	//				Cdriver.findElement(By.xpath("//*[@id=\"nextquest\"]")).click();
-	//				System.out.println("3");
-	//				
-	//				WebDriverWait wait = new WebDriverWait(Cdriver, 20);
-	//				wait.until(ExpectedConditions.visibilityOf (Cdriver.findElement(By.id("nextquest"))));
-	//				
-	//				if(Cdriver.getPageSource().contains("You finished")==true) {
-	//					
-	//					assertEquals(true, (Cdriver.getPageSource().contains("You finished")==true));
-	//
-	//					System.out.println("The test for second QnA passed");
-	//					Cdriver.quit();
-	//				}
-	//				System.out.println("The test for second QnA has failed");
-	//			}
-	//		}
-	//	}
-
+	
 	@Test
 	void IsPageCorrectForFirstGamePage() throws InterruptedException {
 		TriviaQuestion.TriviaQuestion(Cdriver, "a");
