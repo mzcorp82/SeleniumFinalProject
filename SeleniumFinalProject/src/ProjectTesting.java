@@ -48,7 +48,7 @@ class ProjectTesting {
 
 	@Test
 	void ChromeSanity(){
-		
+
 		QnAone.QnAone(Cdriver, "a", "a","b","c","d");
 		AnswerRadioButton.RadioButton(Cdriver, 1);
 		QnAtwo.QnAtwo(Cdriver,"b","g","b","r","u");
@@ -318,11 +318,446 @@ class ProjectTesting {
 	}
 
 	@Test
-	void IsFirstWebPageTurn() throws InterruptedException {
+	void IsFirstNextButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, " ");
+		Cdriver.findElement(By.id("nextquest")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Please enter 4 possible answers and Mark the right one")==true);
+	}
+
+	@Test
+	void IsFirstBackButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, " ");
+		Cdriver.findElement(By.id("backquest")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Please enter 4 possible answers and Mark the right one")==true);
+	}
+
+	@Test
+	void IsSecondNextButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.id("nextquest")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Please type here your question")==true);
+	}
+
+	@Test
+	void IsSecondBackButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.id("backquest")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Please type here your question")==true);
+	}
+
+	@Test
+	void IsThirdNextButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 1);
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.id("nextquest")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Please enter 4 possible answers and Mark the right one")==true);
+	}
+
+	@Test
+	void IsThirdBackButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 1);
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.id("backquest")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Please enter 4 possible answers and Mark the right one")==true);
+	}
+
+	@Test
+	void IsFourthNextButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 1);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "b");
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.id("nextquest")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Please type here your question")==true);
+	}
+
+	@Test
+	void IsFourthBackButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 1);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "b");
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.id("backquest")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Please type here your question")==true);
+	}
+
+	@Test
+	void IsFifthNextButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 1);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "b");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 2);
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.id("nextquest")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Please enter 4 possible answers and Mark the right one")==true);
+	}
+
+	@Test
+	void IsFifthBackButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 1);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "b");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 2);
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.id("backquest")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Please type here your question")==true);
+	}
+
+	@Test
+	void IsSixthNextButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 1);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "b");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 2);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "c");
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.id("nextquest")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("You finished")==true);
+	}
+
+	@Test
+	void IsSixthBackButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 1);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "b");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 2);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "c");
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.id("backquest")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Please type here your question")==true);
+	}
+
+	@Test
+	void IsPlayButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 1);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "b");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 2);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "c");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 3);
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.xpath("//*[@id=\"secondepage\"]/center/button[1]")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Test")==true);
+	}
+
+	@Test
+	void IsQuitButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 1);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "b");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 2);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "c");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 3);
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.xpath("//*[@id=\"secondepage\"]/center/button[2]")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Test")==true);
+	}
+
+	@Test
+	void IsSeventhNextButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 1);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "b");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 2);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "c");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 3);
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.xpath("//*[@id=\"secondepage\"]/center/button[1]")).click();
+		Cdriver.findElement(By.id("btnnext")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Test")==true);
+	}
+
+	@Test
+	void IsSeventhBackButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 1);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "b");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 2);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "c");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 3);
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.xpath("//*[@id=\"secondepage\"]/center/button[1]")).click();
+		Cdriver.findElement(By.id("btnback")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Please enter 4 possible answers and Mark the right one")==true);
+	}
+
+	@Test
+	void IsEighthNextButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 1);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "b");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 2);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "c");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 3);
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.xpath("//*[@id=\"secondepage\"]/center/button[1]")).click();
+		Cdriver.findElement(By.id("btnnext")).click();
+		InGameRadioButton.RadioButton(Cdriver, 1, 3);
+		Cdriver.findElement(By.id("btnnext")).click();
+		Cdriver.findElement(By.id("btnnext")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Test")==true);
+	}
+
+	@Test
+	void IsEighthBackButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 1);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "b");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 2);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "c");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 3);
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.xpath("//*[@id=\"secondepage\"]/center/button[1]")).click();
+		Cdriver.findElement(By.id("btnnext")).click();
+		InGameRadioButton.RadioButton(Cdriver, 1, 3);
+		Cdriver.findElement(By.id("btnnext")).click();
+		Cdriver.findElement(By.id("btnback")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Test")==true);
+	}
+
+	@Test
+	void IsNinthNextButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 1);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "b");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 2);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "c");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 3);
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.xpath("//*[@id=\"secondepage\"]/center/button[1]")).click();
+		Cdriver.findElement(By.id("btnnext")).click();
+		InGameRadioButton.RadioButton(Cdriver, 1, 3);
+		Cdriver.findElement(By.id("btnnext")).click();
+		InGameRadioButton.RadioButton(Cdriver, 2, 2);
+		Cdriver.findElement(By.id("btnnext")).click();
+		Cdriver.findElement(By.id("btnnext")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Test")==true);
+	}
+
+	@Test
+	void IsNinthBackButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 1);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "b");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 2);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "c");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 3);
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.xpath("//*[@id=\"secondepage\"]/center/button[1]")).click();
+		Cdriver.findElement(By.id("btnnext")).click();
+		InGameRadioButton.RadioButton(Cdriver, 1, 3);
+		Cdriver.findElement(By.id("btnnext")).click();
+		InGameRadioButton.RadioButton(Cdriver, 2, 2);
+		Cdriver.findElement(By.id("btnnext")).click();
+		Cdriver.findElement(By.id("btnback")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Test")==true);
+	}
+
+	@Test
+	void IsTenthNextButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 1);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "b");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 2);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "c");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 3);
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.xpath("//*[@id=\"secondepage\"]/center/button[1]")).click();
+		Cdriver.findElement(By.id("btnnext")).click();
+		InGameRadioButton.RadioButton(Cdriver, 1, 3);
+		Cdriver.findElement(By.id("btnnext")).click();
+		InGameRadioButton.RadioButton(Cdriver, 2, 2);
+		Cdriver.findElement(By.id("btnnext")).click();
+		InGameRadioButton.RadioButton(Cdriver, 3, 1);
+		Cdriver.findElement(By.id("btnnext")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Sucsses")==true);
+	}
+
+	@Test
+	void IsTenthBackButtonClickable(){
+
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 1);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "b");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 2);
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaQuestion.TriviaQuestion(Cdriver, "c");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
+		AnswerRadioButton.RadioButton(Cdriver, 3);
+		Cdriver.findElement(By.id("nextquest")).click();
+		Cdriver.findElement(By.xpath("//*[@id=\"secondepage\"]/center/button[1]")).click();
+		Cdriver.findElement(By.id("btnnext")).click();
+		InGameRadioButton.RadioButton(Cdriver, 1, 3);
+		Cdriver.findElement(By.id("btnnext")).click();
+		InGameRadioButton.RadioButton(Cdriver, 2, 2);
+		Cdriver.findElement(By.id("btnnext")).click();
+		InGameRadioButton.RadioButton(Cdriver, 3, 1);
+		Cdriver.findElement(By.id("btnback")).click();
+
+		assertEquals(true, Cdriver.getPageSource().contains("Test")==true);
+	}
+
+	@Test
+	void IsFirstWebPageTurn(){
 		QnAone.QnAone(Cdriver, "a", "a","b","c","d");
 		AnswerRadioButton.RadioButton(Cdriver, 1);
 		if(Cdriver.findElement(By.xpath("//*[@id=\"myform1\"]/div/legend")).isEnabled()==true){
-			Thread.sleep(1000);
 			Cdriver.findElement(By.name("question")).sendKeys("b");
 			Cdriver.findElement(By.id("backquest")).click();
 
@@ -584,59 +1019,26 @@ class ProjectTesting {
 		}
 	}
 
-	
-	@Test
-	void IsPageCorrectForFirstGamePage() throws InterruptedException {
-		TriviaQuestion.TriviaQuestion(Cdriver, "a");
-		Cdriver.findElement(By.id("nextquest")).click();
-		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
-		AnswerRadioButton.RadioButton(Cdriver, 1);
-		Cdriver.findElement(By.id("nextquest")).click();
-		TriviaQuestion.TriviaQuestion(Cdriver, "b");
-		Cdriver.findElement(By.id("nextquest")).click();
-		TriviaAnswers.TriviaAnswers(Cdriver, "e", "b", "g", "y");
-		AnswerRadioButton.RadioButton(Cdriver, 2);
-		Cdriver.findElement(By.id("nextquest")).click();
-		TriviaQuestion.TriviaQuestion(Cdriver, "c");
-		Cdriver.findElement(By.id("nextquest")).click();
-		TriviaAnswers.TriviaAnswers(Cdriver, "t", "e", "c", "u");
-		System.out.println("1");
-		AnswerRadioButton.RadioButton(Cdriver, 3);
-		System.out.println("2");
-		Cdriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		Cdriver.findElement(By.xpath("//*[@id=\"nextquest\"]")).click();
-		if(Cdriver.getPageSource().contains("finished")==true) {
-			System.out.println("4");
-			Cdriver.findElement(By.xpath("//*[@id=\"secondepage\"]/center/button[1]")).click();
-			if(Cdriver.getPageSource().contains("Test")==true)
-
-				assertEquals(true, (Cdriver.getPageSource().contains("Test")==true));
-
-			System.out.println("The test for second QnA passed");
-			Cdriver.quit();
-		}
-	}
-
 	//Error Handling
 	@Test
 	void IncorrectFirstQuestionOfNumbersInput() {
-		
+
 		TriviaQuestion.TriviaQuestion(Cdriver, "4");
 		Cdriver.findElement(By.id("nextquest")).click();
 		assertEquals(true, (Cdriver.getPageSource().contains("Please enter 4 possible answers and Mark the right one")==true));
 	}
-	
+
 	@Test
 	void IncorrectFirstQuestionOfLettersInput() {
-		
+
 		TriviaQuestion.TriviaQuestion(Cdriver, "א");
 		Cdriver.findElement(By.id("nextquest")).click();
 		assertEquals(true, (Cdriver.getPageSource().contains("Please enter 4 possible answers and Mark the right one")==true));
 	}
-	
+
 	@Test
 	void IncorrectSecondQuestionOfNumbersInput() {
-		
+
 		TriviaQuestion.TriviaQuestion(Cdriver, "a");
 		Cdriver.findElement(By.id("nextquest")).click();
 		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
@@ -646,10 +1048,10 @@ class ProjectTesting {
 		Cdriver.findElement(By.id("nextquest")).click();
 		assertEquals(true, (Cdriver.getPageSource().contains("Please enter 4 possible answers and Mark the right one")==true));
 	}
-	
+
 	@Test
 	void IncorrectSecondQuestionOfLettersInput() {
-		
+
 		TriviaQuestion.TriviaQuestion(Cdriver, "a");
 		Cdriver.findElement(By.id("nextquest")).click();
 		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
@@ -659,10 +1061,10 @@ class ProjectTesting {
 		Cdriver.findElement(By.id("nextquest")).click();
 		assertEquals(true, (Cdriver.getPageSource().contains("Please enter 4 possible answers and Mark the right one")==true));
 	}
-	
+
 	@Test
 	void IncorrectThirdQuestionOfNumbersInput() {
-		
+
 		TriviaQuestion.TriviaQuestion(Cdriver, "a");
 		Cdriver.findElement(By.id("nextquest")).click();
 		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
@@ -678,10 +1080,10 @@ class ProjectTesting {
 		assertEquals(true, (Cdriver.getPageSource().contains("Please enter 4 possible answers and Mark the right one")==true));
 
 	}
-	
+
 	@Test
 	void IncorrectThirdQuestionOfLettersInput() {
-		
+
 		TriviaQuestion.TriviaQuestion(Cdriver, "a");
 		Cdriver.findElement(By.id("nextquest")).click();
 		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
