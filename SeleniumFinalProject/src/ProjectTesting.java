@@ -216,11 +216,13 @@ class ProjectTesting {
 		assertEquals(true, Cdriver.getPageSource().contains("Sucsses")==true);
 
 	}
-
+	
 	@Test
-	void FirstQnABVMultiply40() {
-
-		QnAone.QnAone(Cdriver, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","cccccccccccccccccccccccccccccccccccccccc","dddddddddddddddddddddddddddddddddddddddd");
+	void FirstQuestionBVMultiply40() {
+		
+		TriviaQuestion.TriviaQuestion(Cdriver, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "a", "b", "c", "d");
 		AnswerRadioButton.RadioButton(Cdriver, 1);
 		QnAtwo.QnAtwo(Cdriver,"b","g","b","r","u");
 		AnswerRadioButton.RadioButton(Cdriver, 2);
@@ -235,11 +237,33 @@ class ProjectTesting {
 	}
 
 	@Test
-	void SecondQnABVMultiply40() {
+	void FirstAnswerBVMultiply40() {
+		
+		TriviaQuestion.TriviaQuestion(Cdriver, "a");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "cccccccccccccccccccccccccccccccccccccccc", "dddddddddddddddddddddddddddddddddddddddd");
+		AnswerRadioButton.RadioButton(Cdriver, 1);
+		QnAtwo.QnAtwo(Cdriver,"b","g","b","r","u");
+		AnswerRadioButton.RadioButton(Cdriver, 2);
+		QnAthree.QnAthree(Cdriver,"c","w","j","c","q");
+		AnswerRadioButton.RadioButton(Cdriver, 3);
+		GameFrstRound.GameFrstRound(Cdriver);
+		GameSecondRound.GameSecondRound(Cdriver);
+		GameThirdRound.GameThirdRound(Cdriver);
+
+		assertEquals(true, Cdriver.getPageSource().contains("Sucsses")==true);
+	}
+	
+	@Test
+	void SecondQuestionBVMultiply40() {
+		
+		
 
 		QnAone.QnAone(Cdriver, "a", "a","b","c","d");
-		AnswerRadioButton.RadioButton(Cdriver, 1);
-		QnAtwo.QnAtwo(Cdriver,"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","gggggggggggggggggggggggggggggggggggggggg","bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr","uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
+		AnswerRadioButton.RadioButton(Cdriver, 1);		
+		TriviaQuestion.TriviaQuestion(Cdriver, "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "g", "b", "r", "u");
 		AnswerRadioButton.RadioButton(Cdriver, 2);
 		QnAthree.QnAthree(Cdriver,"c","w","j","c","q");
 		AnswerRadioButton.RadioButton(Cdriver, 3);
@@ -252,13 +276,55 @@ class ProjectTesting {
 	}
 
 	@Test
-	void ThirdQnABVMultiply40() {
+	void SecondAnswerBVMultiply40() {
+		
+		
+
+		QnAone.QnAone(Cdriver, "a", "a","b","c","d");
+		AnswerRadioButton.RadioButton(Cdriver, 1);		
+		TriviaQuestion.TriviaQuestion(Cdriver, "b");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "gggggggggggggggggggggggggggggggggggggggg", "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr", "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
+		AnswerRadioButton.RadioButton(Cdriver, 2);
+		QnAthree.QnAthree(Cdriver,"c","w","j","c","q");
+		AnswerRadioButton.RadioButton(Cdriver, 3);
+		GameFrstRound.GameFrstRound(Cdriver);
+		GameSecondRound.GameSecondRound(Cdriver);
+		GameThirdRound.GameThirdRound(Cdriver);
+
+		assertEquals(true, Cdriver.getPageSource().contains("Sucsses")==true);
+
+	}
+	
+	@Test
+	void ThirdQuestionBVMultiply40() {
 
 		QnAone.QnAone(Cdriver, "a", "a","b","c","d");
 		AnswerRadioButton.RadioButton(Cdriver, 1);
 		QnAtwo.QnAtwo(Cdriver,"b","g","b","r","u");
 		AnswerRadioButton.RadioButton(Cdriver, 2);
-		QnAthree.QnAthree(Cdriver,"cccccccccccccccccccccccccccccccccccccccc","wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww","jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj","cccccccccccccccccccccccccccccccccccccccc","qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
+		TriviaQuestion.TriviaQuestion(Cdriver, "cccccccccccccccccccccccccccccccccccccccc");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "w", "j", "c", "q");
+		AnswerRadioButton.RadioButton(Cdriver, 3);
+		GameFrstRound.GameFrstRound(Cdriver);
+		GameSecondRound.GameSecondRound(Cdriver);
+		GameThirdRound.GameThirdRound(Cdriver);
+
+		assertEquals(true, Cdriver.getPageSource().contains("Sucsses")==true);
+
+	}
+
+	@Test
+	void ThirdAnswerBVMultiply40() {
+
+		QnAone.QnAone(Cdriver, "a", "a","b","c","d");
+		AnswerRadioButton.RadioButton(Cdriver, 1);
+		QnAtwo.QnAtwo(Cdriver,"b","g","b","r","u");
+		AnswerRadioButton.RadioButton(Cdriver, 2);	
+		TriviaQuestion.TriviaQuestion(Cdriver, "c");
+		Cdriver.findElement(By.id("nextquest")).click();
+		TriviaAnswers.TriviaAnswers(Cdriver, "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww", "jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj", "cccccccccccccccccccccccccccccccccccccccc", "qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
 		AnswerRadioButton.RadioButton(Cdriver, 3);
 		GameFrstRound.GameFrstRound(Cdriver);
 		GameSecondRound.GameSecondRound(Cdriver);
